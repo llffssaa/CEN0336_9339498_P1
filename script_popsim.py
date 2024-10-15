@@ -1,24 +1,36 @@
 #!/usr/bin/env python3
-import sys
 
 def main():
-    if len(sys.argv) != 4:
-        print("Para utilziar, insira a seguinte linha: ./script_popsim.py <P0> <r> <t>, onde: ")
-        print("<P0>: Tamanho inicial da população (número positivo)")
-        print("<r>: Taxa de crescimento anual (decimal, por exemplo, 0.05 para 5%)")
-        print("<t>: Número de anos (número inteiro positivo)")
-        sys.exit(1)
-    try:
-        P0 = float(sys.argv[1])
-        r = float(sys.argv[2])
-        t = int(sys.argv[3])
+    while True:
+        try:
+            P0 = float(input("Insira o tamanho inicial da população: "))
+            if P0 <= 0:
+                print("Por favor, insira um número positivo.")
+                continue
+            break
+        except ValueError:
+            print ("Entrada inválida. Por favor, insira um número válido.")
 
-        if P0 < 0 or r < 0 or t < 0:
-            print("Insira apenas valores positivos.")
-            sys.exit(1)
+    while True:
+        try:
+            r = float(input("Insira a taxa de crescimento anual, em valores decimais: "))
+            if r < 0:
+                print("Por favor, insira um número positivo.")
+                continue
+            break
+        except ValueError:
+            print("Entrada inválida")
 
-    except ValueError:
-        print("Entrada inválida. Insira números validos.")
+    while True:
+        try:
+            t = int(input("Insira o número de anos para análise: "))
+            if t < 0:
+                print("Por favor, insira um número postivo.")
+                continue
+            break
+        except ValueError:
+            print("Entrada inválida. Por favor, insira um número válido.")
+
 
     for ano in range(1, t + 1):
         P_t = P0 * (1+r)**ano
