@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 
+#definindo os inputs e a função
 def main():
     while True:
         try:
@@ -31,11 +32,11 @@ def main():
         except ValueError:
             print("Entrada inválida. Por favor, insira um número válido.")
 
-
+#Definindo a função, de fato
     for ano in range(1, t + 1):
         P_t = P0 * (1+r)**ano
         print(f"Ano {ano}: {P_t}")
-
+#chamando a funçao
 if __name__ == "__main__":
     main()
 
